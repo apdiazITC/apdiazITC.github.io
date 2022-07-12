@@ -2,6 +2,19 @@
 <html lang="es">
 <head>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+
+	<link rel="stylesheet" type="text/css" href="./static/css/leaflet-search.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>	
+	
+	<link rel="stylesheet" type="text/css" href="./static/css/leaflet.zoomhome.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/leaflet.control.fullscreen.css">
+
+	<script type="text/javascript" src="./static/js/leaflet-search.js"></script>
+	<script type="text/javascript" src="./static/js/leaflet.zoomhome.js"></script>
+	<script type="text/javascript" src="./static/leaflet.control.fullscreen.js"></script>
+
+	<script type="text/javascript" src="./static/js/poblacion.js" ></script>
+	
 	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
 	
 	<title> Inicio </title>
@@ -11,15 +24,34 @@
 Mapa	
 	<div id="map" style="height:600px;"></div>
 	
-	<script type="text/javascript" src="./static/js/poblacion.js" ></script>
+	
 	<script type="text/javascript">
 
-		var map = L.map('map').setView([51.505, -0.09], 13);
-
-		L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
-
-		L.marker([51.5, -0.09]).addTo(map).bindPopup('A pretty CSS3 popup.<br> Easily customizable.').openPopup();
-		console.log(poblacion);
+    var southWest = L.latLng(26.010951, -24);
+    var northEast = L.latLng(30.835566, -8);
+    var bounds = L.latLngBounds(southWest, northEast);
+	
+	var map = L.map('map', {zoomControl: false, fullscreenControl: true,
+		  fullscreenControlOptions: {
+			    position: 'topleft'
+			  }}).setView([28.35, -15.8], 8).setMaxBounds(bounds);
+	
+	map.on('drag', function() {
+	    map.panInsideBounds(bounds, { animate: false });
+	});
+	
+	var zoomHome = L.Control.zoomHome();
+	zoomHome.addTo(map);
+	
+	//'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+	
+	var baselayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+		minZoom: 8,
+	    maxZoom: 10,
+	    attribution: '© OpenStreetMap',
+	    maxBounds: bounds,
+	    subdomains:['mt0','mt1','mt2','mt3']
+	}).addTo(map);
 	</script>
 </body>	
 </html>
