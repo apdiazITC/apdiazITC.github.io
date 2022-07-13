@@ -31,6 +31,7 @@
 <body>
 <br><br>
 	<div class="row justify-content-center">
+		12:00 13/07/2022
 		<div class="col-10">
 			<div id="map" style="height:600px;"></div>
 		</div>
@@ -176,10 +177,11 @@
 	blanktile = L.tileLayer('', {minZoom: 8, maxZoom: 10, attribution: '© OpenStreetMap', maxBounds: bounds});
 	
 	sel1labels.forEach(function(year, index){
-	   	var layer = L.geoJson(poblacion, {style: {weight: 0, fillOpacity: 0} });
-    	
-	    if(index==0){layer.addTo(map);}
-    	layerControl2.addBaseLayer(layer, year);	
+	   	//var layer = L.geoJson(poblacion, {style: {weight: 0, fillOpacity: 0} });
+		var blanktile = L.tileLayer('', {minZoom: 8, maxZoom: 10, attribution: '', maxBounds: bounds});
+
+	    if(index==0){blanktile.addTo(map);}
+    	layerControl2.addBaseLayer(blanktile, year);	
     });
 	
 	var fooLegend = L.control({position: 'topright'});
