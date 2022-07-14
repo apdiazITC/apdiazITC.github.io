@@ -1,0 +1,95 @@
+.lsp-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    max-width: 70em;
+    z-index: 2000;
+    background-color: white;
+    transition: top 0.3s;
+    overflow: hidden;
+    transform: translate3d(0px, 0px, 0px);
+    cursor: auto;
+}
+.lsp-container.lsp-touch {
+    cursor: grab;
+}
+.lsp-handle {
+    margin-left: 40%;
+    margin-right: 40%;
+    display: none;
+}
+.lsp-touch .lsp-handle {
+    display: block;
+}
+.lsp-nav {
+    position: absolute;
+    right: 0.25em;
+    top: 0.25em;
+    z-index: 3000;
+}
+.lsp-nav button {
+    color: #999;
+    border: 1px solid #999;
+    font-size: 1em;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 0.4em;
+    margin: 0.15em;
+    padding: 0;
+    text-align: center;
+    background-color: white;
+    opacity: 0.5;
+    outline: 0;
+    float: right;
+    cursor: pointer;
+    display: none; /* */
+}
+.lsp-nav button:hover {
+    opacity: 0.75;
+}
+.lsp-touch .lsp-nav button {
+    opacity: 0.3;
+}
+
+.lsp-header {
+    margin-top: 0;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+}
+
+.lsp-container.lsp-minimal {
+    top: calc(100% - 10em);
+}
+.lsp-container.lsp-medium {
+    top: 45%;
+}
+.lsp-container.lsp-full {
+    top: 5%;
+}
+
+.lsp-content {
+    white-space: nowrap;
+    min-height: 100%;
+}
+.lsp-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+    white-space: normal;
+    vertical-align: top;
+    min-height: 100%;
+    transition: transform 0.3s;
+}
+
+.lsp-card img {
+    max-width: 100% !important;
+}
