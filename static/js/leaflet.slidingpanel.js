@@ -23,7 +23,7 @@
 
 // var SlidingPanel = L.Evented.extend({  // Leaflet 1.0
 var SlidingPanel = L.Class.extend({
-    'includes': L.Mixin.Events,
+    'includes': L.Evented.prototype,
 
     'options': {
         'parentElement': null,
