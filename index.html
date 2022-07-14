@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">	
 	<link rel="stylesheet" type="text/css" href="./static/css/leaflet.zoomhome.css">
 	<link rel="stylesheet" type="text/css" href="./static/css/leaflet.control.fullscreen.css">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/leaflet.slidingpanel.css') }}">
+	<link rel="stylesheet" type="text/css" href="./static/css/leaflet.slidingpanel.css') }}">
 
 
 	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
@@ -25,7 +25,7 @@
 	<script type="text/javascript" src="./static/js/leaflet-search.js"></script>
 	<script type="text/javascript" src="./static/js/leaflet.zoomhome.js"></script>
 	<script type="text/javascript" src="./static/js/leaflet.control.fullscreen.js"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/leaflet.slidingpanel.js') }}"></script>
+	<script type="text/javascript" src="./static/js/leaflet.slidingpanel.js') }}"></script>
 
 
 	<script type="text/javascript" src="./static/js/poblacion.js" ></script>
@@ -37,7 +37,7 @@
 <br><br>
 	<div class="row justify-content-center">
 		<div class="col-11">
-			10:23 14/07/2022
+			10:27 14/07/2022
 			<div id="map" style="height:600px;"></div>
 		</div>
 	</div>
@@ -87,11 +87,11 @@
 		 
 		    container.onclick = function(){
 	          if(state == 0){
-	        	  map.openPanel("<h1>Demo Marker</h1><p>So, how's the panel working for you?</p><p>See the <a href=\"https://github.com/Zverik/leaflet-sliding-panel\">source code</a>.</p>");
-	        	  state = 1;
+				map.openPanel("<h1>Panel Demo</h1><p>Plantilla de texto</p>");	        	  
+			  	state = 1;
 	          }else{
-	        	  map.closePanel();
-	        	  state = 0;
+			  	map.closePanel();
+			  	state = 0;
 	          }
 		    }
 		    return container;
